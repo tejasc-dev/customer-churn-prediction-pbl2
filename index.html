@@ -1,33 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Customer Churn Prediction</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Churn Prediction | PBL 2026</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+body {
+    background-color: #020617;
+    color: #f8fafc;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.gradient-text {
+    background: linear-gradient(90deg, #60a5fa, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>
 </head>
-<body style="font-family: Arial; padding: 40px;">
 
-<h1>Customer Churn Prediction using Machine Learning</h1>
+<body>
 
-<p><b>Student:</b> Tejas Chaudhary</p>
-<p><b>Department:</b> Computer Science and Engineering</p>
-<p><b>Guide Name:</b> Varda Pareek</p>
-    
-<h2>Project Overview</h2>
-<p>
-This project predicts telecom customer churn using multiple machine learning
-classifiers and evaluates their performance.
+<!-- NAV -->
+<nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
+    <span class="text-xl font-black">PBL 2026</span>
+    <div class="hidden md:flex gap-8 text-xs uppercase">
+        <a href="#problem">Problem</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#results">Results</a>
+        <a href="#team">Team</a>
+    </div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
+
+<!-- HERO -->
+<section class="text-center">
+    <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-xs mb-6 uppercase">
+        ID: 2427030729
+    </div>
+
+    <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
+        <span class="gradient-text">Customer Churn Prediction using Machine Learning</span>
+    </h1>
+
+    <p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+        Predicting telecom customer attrition using supervised machine learning models to enable proactive retention strategies.
+    </p>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
+
+<div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
+    <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+    <p class="text-slate-400 leading-relaxed text-justify">
+        Telecom companies face significant revenue loss due to customer churn. The objective of this project is to develop and compare multiple machine learning models to accurately predict customers likely to discontinue services.
+    </p>
+</div>
+
+<div class="space-y-6">
+    <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
+        <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Literature Review</h3>
+        <p class="text-sm text-slate-500 italic">
+            Prior research shows ensemble methods such as Random Forest and Gradient Boosting outperform linear models in churn prediction tasks.
+        </p>
+    </div>
+
+    <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
+        <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Gap</h3>
+        <p class="text-sm text-slate-500 italic">
+            Limited comparative evaluation across multiple classifiers on the IBM Telco dataset with focus on churn recall.
+        </p>
+    </div>
+</div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology" class="space-y-12">
+<h2 class="text-4xl font-black text-center uppercase tracking-tight">
+System <span class="text-blue-500">Methodology</span>
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="glass p-8 rounded-3xl text-center">
+<i class="fas fa-database text-blue-500 text-3xl mb-4"></i>
+<h3 class="font-bold mb-2 uppercase text-xs">Dataset</h3>
+<p class="text-sm text-slate-500">
+IBM Telco Customer Churn dataset (~7043 records). Data preprocessing and encoding applied.
 </p>
+</div>
 
-<h2>Live Notebook</h2>
-<p>
-<a href="https://colab.research.google.com/drive/1XXfMyim-oR1xj877Q8vOSwkpK06Lu5EP?usp=sharing">
-Click here to view the Google Colab notebook
+<div class="glass p-8 rounded-3xl text-center">
+<i class="fas fa-microchip text-purple-500 text-3xl mb-4"></i>
+<h3 class="font-bold mb-2 uppercase text-xs">Models Used</h3>
+<p class="text-sm text-slate-500">
+10 classifiers including Logistic Regression, Random Forest, Gradient Boosting and XGBoost.
+</p>
+</div>
+
+<div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
+<i class="fab fa-python text-green-500 text-3xl mb-4"></i>
+<h3 class="font-bold mb-4 uppercase text-xs text-green-400">Live Execution</h3>
+<a href="https://colab.research.google.com/drive/1XXfMyim-oR1xj877Q8vOSwkpK06Lu5EP?usp=sharing"
+   target="_blank"
+   class="px-6 py-2 bg-green-600 rounded-full text-xs font-black hover:bg-green-500 transition">
+VIEW CODE / DEMO
 </a>
-</p>
+</div>
 
-<h2>Best Model</h2>
-<p>
-Gradient Boosting achieved the best balanced performance with ~79.46% accuracy.
+</div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-blue-500">
+<h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
+Results & <span class="text-blue-500">Analysis</span>
+</h2>
+
+<div class="grid md:grid-cols-2 gap-16 items-center">
+
+<div class="h-80">
+<canvas id="resultsChart"></canvas>
+</div>
+
+<div class="space-y-6">
+<div class="p-6 rounded-2xl bg-white/5 flex justify-between items-center border border-white/10">
+<span class="text-slate-400 font-bold uppercase text-xs">Best Accuracy</span>
+<span class="text-blue-400 font-mono font-black text-3xl">79.46%</span>
+</div>
+
+<p class="text-slate-500 text-sm italic text-justify leading-relaxed">
+Gradient Boosting achieved the best balanced performance, while XGBoost provided the highest churn recall.
 </p>
+</div>
+
+</div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="text-center pt-10 border-t border-slate-900">
+<h2 class="text-xs font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
+Academic Credits
+</h2>
+
+<div class="flex flex-wrap justify-center gap-10">
+
+<div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
+<p class="text-xs font-bold text-blue-500 mb-2 uppercase">Project Guide</p>
+<p class="font-black text-xl">Varda Pareek</p>
+</div>
+
+<div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
+<p class="text-xs font-bold text-slate-400 mb-2 uppercase">Student</p>
+<p class="font-black text-xl">Tejas</p>
+<p class="text-xs text-slate-500 mt-1">2427030729</p>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- CHART -->
+<script>
+const ctx = document.getElementById('resultsChart').getContext('2d');
+new Chart(ctx, {
+type: 'bar',
+data: {
+labels: ['Logistic', 'Random Forest', 'Gradient Boosting', 'XGBoost'],
+datasets: [{
+data: [77.97, 79.46, 79.46, 77.83],
+backgroundColor: ['#334155', '#3b82f6', '#22c55e', '#a855f7'],
+borderRadius: 12
+}]
+},
+options: {
+plugins: { legend: { display: false } },
+scales: { y: { beginAtZero: true } }
+}
+});
+</script>
 
 </body>
 </html>
