@@ -7,33 +7,49 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
 body {
     background-color: #020617;
     color: #f8fafc;
     font-family: 'Plus Jakarta Sans', sans-serif;
     scroll-behavior: smooth;
 }
+
 .glass {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
 }
+.glass:hover {
+    transform: translateY(-6px);
+    border-color: rgba(96,165,250,0.4);
+}
+
 .gradient-text {
     background: linear-gradient(90deg, #60a5fa, #a855f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
+<nav class="fixed w-full z-50 border-b border-slate-800/50 px-8 py-4 flex justify-between items-center backdrop-blur">
     <span class="text-xl font-black">PBL 2026</span>
     <div class="hidden md:flex gap-8 text-xs uppercase">
         <a href="#problem">Problem</a>
@@ -46,127 +62,126 @@ body {
 <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
 
 <!-- HERO -->
-<section class="text-center">
+<section class="text-center fade">
     <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-xs mb-6 uppercase">
         ID: 2427030729
     </div>
 
     <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
-        <span class="gradient-text">Customer Churn Prediction using Machine Learning</span>
+        <span class="gradient-text">Customer Churn Prediction using Ensemble Learning</span>
     </h1>
 
     <p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-        Predicting telecom customer attrition using supervised machine learning models to enable proactive retention strategies.
+        A data-driven system to predict telecom customer churn using advanced ensemble models, enabling proactive retention strategies and improving business decision-making.
     </p>
 </section>
 
 <!-- PROBLEM -->
-<section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
+<section id="problem" class="grid md:grid-cols-2 gap-12 fade">
 
-<div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
+<div class="glass p-10 rounded-[2.5rem] border-l-4 border-blue-600">
     <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
     <p class="text-slate-400 leading-relaxed text-justify">
-        Telecom companies face significant revenue loss due to customer churn. The objective of this project is to develop and compare multiple machine learning models to accurately predict customers likely to discontinue services.
+        Telecom companies face significant financial losses due to customer churn. Traditional models often fail to capture complex behavioral patterns and suffer from class imbalance. This project aims to build a robust, recall-oriented churn prediction system using ensemble learning techniques.
     </p>
 </div>
 
 <div class="space-y-6">
-    <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
-        <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Literature Review</h3>
+    <div class="glass p-7 rounded-3xl">
+        <h3 class="text-blue-400 font-bold text-xs uppercase mb-2">Literature Review</h3>
         <p class="text-sm text-slate-500 italic">
-            Prior research shows ensemble methods such as Random Forest and Gradient Boosting outperform linear models in churn prediction tasks.
+            Research shows ensemble methods like Random Forest, Gradient Boosting, and XGBoost outperform linear models in churn prediction due to their ability to model non-linear relationships.
         </p>
     </div>
 
-    <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
-        <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Gap</h3>
+    <div class="glass p-7 rounded-3xl">
+        <h3 class="text-purple-400 font-bold text-xs uppercase mb-2">Research Gap</h3>
         <p class="text-sm text-slate-500 italic">
-            Limited comparative evaluation across multiple classifiers on the IBM Telco dataset with focus on churn recall.
+            Limited work focuses on heterogeneous stacking ensembles with recall optimization and interpretability using SHAP values.
         </p>
     </div>
 </div>
 </section>
 
 <!-- METHODOLOGY -->
-<section id="methodology" class="space-y-12">
-<h2 class="text-4xl font-black text-center uppercase tracking-tight">
+<section id="methodology" class="space-y-12 text-center fade">
+<h2 class="text-4xl font-black uppercase">
 System <span class="text-blue-500">Methodology</span>
 </h2>
 
 <div class="grid md:grid-cols-3 gap-8">
 
-<div class="glass p-8 rounded-3xl text-center">
-<i class="fas fa-database text-blue-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-2 uppercase text-xs">Dataset</h3>
+<div class="glass p-8 rounded-3xl">
+<h3 class="font-bold uppercase text-xs mb-2">Dataset</h3>
 <p class="text-sm text-slate-500">
-IBM Telco Customer Churn dataset (~7043 records). Data preprocessing and encoding applied.
+IBM Telco dataset (7043 customers). Data preprocessing included missing value handling, encoding, and scaling.
 </p>
 </div>
 
-<div class="glass p-8 rounded-3xl text-center">
-<i class="fas fa-microchip text-purple-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-2 uppercase text-xs">Models Used</h3>
+<div class="glass p-8 rounded-3xl">
+<h3 class="font-bold uppercase text-xs mb-2">Models Used</h3>
 <p class="text-sm text-slate-500">
-10 classifiers including Logistic Regression, Random Forest, Gradient Boosting and XGBoost.
+Logistic Regression, Decision Trees, Random Forest, XGBoost, LightGBM, CatBoost, and stacking ensemble.
 </p>
 </div>
 
-<div class="glass p-8 rounded-3xl text-center border-2 border-green-500/20 bg-green-500/5">
-<i class="fab fa-python text-green-500 text-3xl mb-4"></i>
-<h3 class="font-bold mb-4 uppercase text-xs text-green-400">Live Execution</h3>
-<a href="https://colab.research.google.com/drive/1XXfMyim-oR1xj877Q8vOSwkpK06Lu5EP?usp=sharing"
-   target="_blank"
-   class="px-6 py-2 bg-green-600 rounded-full text-xs font-black hover:bg-green-500 transition">
-VIEW CODE / DEMO
-</a>
+<div class="glass p-8 rounded-3xl border border-green-500/30">
+<h3 class="font-bold uppercase text-xs mb-2 text-green-400">Key Techniques</h3>
+<p class="text-sm text-slate-500">
+SMOTE for imbalance, Optuna for hyperparameter tuning, and SHAP for model interpretability.
+</p>
 </div>
 
 </div>
 </section>
 
 <!-- RESULTS -->
-<section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-blue-500">
-<h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-Results & <span class="text-blue-500">Analysis</span>
+<section id="results" class="glass p-12 rounded-[3rem] fade">
+<h2 class="text-3xl font-black text-center mb-12 uppercase">
+Results & Analysis
 </h2>
 
-<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="grid md:grid-cols-2 gap-12 items-center">
 
 <div class="h-80">
-<canvas id="resultsChart"></canvas>
+<canvas id="chart"></canvas>
 </div>
 
 <div class="space-y-6">
-<div class="p-6 rounded-2xl bg-white/5 flex justify-between items-center border border-white/10">
-<span class="text-slate-400 font-bold uppercase text-xs">Best Accuracy</span>
-<span class="text-blue-400 font-mono font-black text-3xl">79.46%</span>
+<div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between">
+<span class="text-slate-400 text-xs uppercase">Best Model</span>
+<span class="text-blue-400 font-bold">Stacking Ensemble</span>
 </div>
 
-<p class="text-slate-500 text-sm italic text-justify leading-relaxed">
-Gradient Boosting achieved the best balanced performance, while XGBoost provided the highest churn recall.
-</p>
+<div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between">
+<span class="text-slate-400 text-xs uppercase">ROC-AUC</span>
+<span class="text-green-400 font-bold">0.83</span>
+</div>
+
+<div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between">
+<span class="text-slate-400 text-xs uppercase">F1 (Churn)</span>
+<span class="text-purple-400 font-bold">0.62</span>
+</div>
 </div>
 
 </div>
 </section>
 
 <!-- TEAM -->
-<section id="team" class="text-center pt-10 border-t border-slate-900">
-<h2 class="text-xs font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
-Academic Credits
-</h2>
+<section id="team" class="text-center fade">
+<h2 class="text-xs text-slate-500 uppercase mb-12">Academic Credits</h2>
 
-<div class="flex flex-wrap justify-center gap-10">
+<div class="flex justify-center gap-10 flex-wrap">
 
-<div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-<p class="text-xs font-bold text-blue-500 mb-2 uppercase">Project Guide</p>
-<p class="font-black text-xl">Varda Pareek</p>
+<div class="glass px-10 py-6 rounded-2xl">
+<p class="text-xs text-blue-500">Guide</p>
+<p class="font-bold">Dr. Varda Pareek</p>
 </div>
 
-<div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
-<p class="text-xs font-bold text-slate-400 mb-2 uppercase">Student</p>
-<p class="font-black text-xl">Tejas</p>
-<p class="text-xs text-slate-500 mt-1">2427030729</p>
+<div class="glass px-10 py-6 rounded-2xl">
+<p class="text-xs text-slate-400">Student</p>
+<p class="font-bold">Tejas Chaudhary</p>
+<p class="text-xs text-slate-500">2427030729</p>
 </div>
 
 </div>
@@ -174,17 +189,25 @@ Academic Credits
 
 </main>
 
-<!-- CHART -->
 <script>
-const ctx = document.getElementById('resultsChart').getContext('2d');
-new Chart(ctx, {
+// fade animation
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('show');
+}
+});
+});
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+// chart
+new Chart(document.getElementById('chart'), {
 type: 'bar',
 data: {
-labels: ['Logistic', 'Random Forest', 'Gradient Boosting', 'XGBoost'],
+labels: ['Logistic', 'RF', 'XGBoost', 'Stacking'],
 datasets: [{
-data: [77.97, 79.46, 79.46, 77.83],
-backgroundColor: ['#334155', '#3b82f6', '#22c55e', '#a855f7'],
-borderRadius: 12
+data: [0.74, 0.78, 0.82, 0.83],
+backgroundColor: ['#475569','#3b82f6','#a855f7','#22c55e']
 }]
 },
 options: {
