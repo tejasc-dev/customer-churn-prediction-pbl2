@@ -3,46 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customer Churn Prediction</title>
+<title>Churn Prediction PBL</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-snap-type: y mandatory;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-    background: #0f0f0f;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: scroll;
+    background: #0a0a0a;
     color: white;
 }
 
+/* SLIDE STYLE */
 section {
     height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px;
 }
 
+/* CONTENT */
 .slide {
     max-width: 900px;
+    padding: 20px;
 }
 
+/* TEXT */
 h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    font-weight: 700;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
-    color: #00ffc3;
+    color: #00e5ff;
 }
 
 p {
@@ -55,16 +64,24 @@ ul {
 }
 
 ul li {
-    margin: 10px 0;
+    margin: 12px 0;
     font-size: 1.2rem;
 }
 
-/* gradients for sections */
-.hero { background: linear-gradient(135deg, #1f4037, #99f2c8); }
-.dark { background: #111; }
-.alt { background: linear-gradient(135deg, #141e30, #243b55); }
+/* BACKGROUNDS */
+.hero {
+    background: linear-gradient(135deg, #141e30, #243b55);
+}
 
-/* navigation dots */
+.dark {
+    background: #0a0a0a;
+}
+
+.alt {
+    background: linear-gradient(135deg, #1c1c1c, #2b2b2b);
+}
+
+/* NAV DOTS */
 .nav {
     position: fixed;
     right: 20px;
@@ -74,23 +91,25 @@ ul li {
 
 .nav a {
     display: block;
-    margin: 10px;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
+    margin: 12px 0;
     background: white;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 0.4;
+    transition: 0.3s;
 }
 
 .nav a:hover {
     opacity: 1;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- NAV DOTS -->
+<!-- NAVIGATION -->
 <div class="nav">
     <a href="#s1"></a>
     <a href="#s2"></a>
@@ -99,6 +118,7 @@ ul li {
     <a href="#s5"></a>
     <a href="#s6"></a>
     <a href="#s7"></a>
+    <a href="#s8"></a>
 </div>
 
 <!-- SLIDE 1 -->
@@ -107,7 +127,7 @@ ul li {
 <h1>Customer Churn Prediction</h1>
 <p>Using Ensemble Learning</p>
 <br>
-<p><b>Tejas Chaudhary</b></p>
+<p>Tejas Chaudhary</p>
 <p>2427030729 | MUJ</p>
 </div>
 </section>
@@ -117,8 +137,8 @@ ul li {
 <div class="slide">
 <h2>Introduction</h2>
 <p>
-Customer churn refers to customers discontinuing a service. 
-In telecom industries, churn directly impacts revenue and growth.
+Customer churn refers to customers leaving a service.
+In telecom industries, churn directly impacts revenue.
 </p>
 </div>
 </section>
@@ -128,8 +148,8 @@ In telecom industries, churn directly impacts revenue and growth.
 <div class="slide">
 <h2>Problem Statement</h2>
 <p>
-Traditional models fail to capture complex customer behavior. 
-Class imbalance leads to biased predictions.
+Traditional models fail to capture complex patterns.
+Class imbalance leads to poor churn detection.
 </p>
 </div>
 </section>
@@ -139,10 +159,10 @@ Class imbalance leads to biased predictions.
 <div class="slide">
 <h2>Objectives</h2>
 <ul>
-<li>Build churn prediction model</li>
-<li>Compare ML algorithms</li>
+<li>Predict customer churn</li>
+<li>Compare ML models</li>
 <li>Use ensemble learning</li>
-<li>Improve prediction accuracy</li>
+<li>Improve accuracy</li>
 </ul>
 </div>
 </section>
@@ -155,7 +175,7 @@ Class imbalance leads to biased predictions.
 <li>Data preprocessing</li>
 <li>Feature engineering</li>
 <li>Model training</li>
-<li>Ensemble learning</li>
+<li>Stacking ensemble</li>
 <li>Evaluation</li>
 </ul>
 </div>
@@ -167,22 +187,33 @@ Class imbalance leads to biased predictions.
 <h2>Models Used</h2>
 <ul>
 <li>Logistic Regression</li>
-<li>Decision Tree</li>
 <li>Random Forest</li>
-<li>Gradient Boosting</li>
-<li>Ensemble Model</li>
+<li>XGBoost</li>
+<li>LightGBM</li>
+<li>Stacking Ensemble</li>
 </ul>
 </div>
 </section>
 
 <!-- SLIDE 7 -->
-<section id="s7" class="hero">
+<section id="s7" class="alt">
+<div class="slide">
+<h2>Results</h2>
+<p>
+Stacking model improved performance significantly.
+Better recall for churn class achieved.
+</p>
+</div>
+</section>
+
+<!-- SLIDE 8 -->
+<section id="s8" class="hero">
 <div class="slide">
 <h2>Conclusion</h2>
 <p>
-Ensemble learning improves churn prediction by capturing complex patterns.
+Ensemble learning improves prediction accuracy and reliability.
+Future work includes deployment and optimization.
 </p>
-<p>Future work includes deployment and deep learning models.</p>
 </div>
 </section>
 
