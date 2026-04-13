@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Churn Prediction</title>
+<title>Customer Churn Prediction</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,26 +15,26 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
+html, body {
+    height: 100%;
     overflow: hidden;
-    background: #0a0a0a;
-    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background: #111;
+    color: #fff;
 }
 
-/* SLIDES */
-.container {
-    height: 100vh;
+/* SLIDE CONTAINER */
+.wrapper {
+    height: 100%;
     width: 100%;
     position: relative;
 }
 
-section {
-    height: 100vh;
-    width: 100%;
+/* EACH SLIDE */
+.slide {
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 100%;
+    height: 100vh;
 
     display: flex;
     justify-content: center;
@@ -42,32 +42,35 @@ section {
     text-align: center;
 
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+    transform: translateY(60px);
+    transition: all 0.7s ease;
 }
 
-section.active {
+/* ACTIVE SLIDE */
+.slide.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* TEXT */
-.slide {
-    max-width: 800px;
+/* CONTENT */
+.content {
+    max-width: 850px;
 }
 
+/* TYPOGRAPHY */
 h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    font-weight: 600;
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #00e5ff;
+    font-weight: 500;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.6;
 }
 
@@ -75,42 +78,34 @@ ul {
     list-style: none;
 }
 
-ul li {
+li {
     margin: 10px 0;
 }
 
 /* BACKGROUNDS */
-.hero {
-    background: linear-gradient(135deg, #1f4037, #99f2c8);
-}
+.bg1 { background: linear-gradient(135deg, #2c5364, #203a43, #0f2027); }
+.bg2 { background: #111; }
+.bg3 { background: linear-gradient(135deg, #232526, #414345); }
 
-.dark {
-    background: #0a0a0a;
-}
-
-.alt {
-    background: linear-gradient(135deg, #141e30, #243b55);
-}
-
-/* NAV DOTS */
+/* DOT NAVIGATION */
 .nav {
     position: fixed;
-    right: 20px;
+    right: 25px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.nav div {
+.dot {
     width: 10px;
     height: 10px;
-    margin: 10px;
     background: white;
+    margin: 10px 0;
     border-radius: 50%;
     opacity: 0.3;
     cursor: pointer;
 }
 
-.nav .active-dot {
+.dot.active {
     opacity: 1;
 }
 
@@ -119,10 +114,10 @@ ul li {
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-<section class="hero active">
-<div class="slide">
+<div class="slide bg1 active">
+<div class="content">
 <h1>Customer Churn Prediction</h1>
 <p>Using Ensemble Learning Techniques</p>
 <br>
@@ -130,114 +125,125 @@ ul li {
 <p>2427030729</p>
 <p>Manipal University Jaipur</p>
 </div>
-</section>
+</div>
 
-<section class="dark">
-<div class="slide">
+<div class="slide bg2">
+<div class="content">
 <h2>Introduction</h2>
-<p>Customer churn refers to customers leaving a service. It directly impacts revenue.</p>
+<p>
+Customer churn refers to customers discontinuing a service.
+In telecom industries, churn directly impacts revenue and growth.
+</p>
 </div>
-</section>
+</div>
 
-<section class="alt">
-<div class="slide">
+<div class="slide bg3">
+<div class="content">
 <h2>Problem Statement</h2>
-<p>Traditional models fail to capture complex patterns and class imbalance issues.</p>
+<p>
+Traditional machine learning models fail to capture complex patterns in customer data.
+Class imbalance leads to biased predictions.
+</p>
 </div>
-</section>
+</div>
 
-<section class="dark">
-<div class="slide">
+<div class="slide bg2">
+<div class="content">
 <h2>Objectives</h2>
 <ul>
-<li>Predict churn</li>
-<li>Compare models</li>
-<li>Use ensemble learning</li>
-<li>Improve accuracy</li>
+<li>Predict customer churn</li>
+<li>Compare machine learning models</li>
+<li>Implement ensemble techniques</li>
+<li>Improve prediction performance</li>
 </ul>
 </div>
-</section>
+</div>
 
-<section class="alt">
-<div class="slide">
+<div class="slide bg3">
+<div class="content">
 <h2>Methodology</h2>
 <ul>
-<li>Preprocessing</li>
+<li>Data preprocessing</li>
 <li>Feature engineering</li>
 <li>Model training</li>
 <li>Stacking ensemble</li>
 <li>Evaluation</li>
 </ul>
 </div>
-</section>
+</div>
 
-<section class="dark">
-<div class="slide">
+<div class="slide bg2">
+<div class="content">
 <h2>Models Used</h2>
 <ul>
 <li>Logistic Regression</li>
 <li>Random Forest</li>
 <li>XGBoost</li>
 <li>LightGBM</li>
-<li>Stacking</li>
+<li>Stacking Ensemble</li>
 </ul>
 </div>
-</section>
+</div>
 
-<section class="alt">
-<div class="slide">
+<div class="slide bg3">
+<div class="content">
 <h2>Results</h2>
-<p>Stacking model improved performance and recall significantly.</p>
+<p>
+The stacking model improved recall and overall performance compared to individual models.
+</p>
 </div>
-</section>
+</div>
 
-<section class="hero">
-<div class="slide">
+<div class="slide bg1">
+<div class="content">
 <h2>Conclusion</h2>
-<p>Ensemble learning improves churn prediction accuracy and reliability.</p>
+<p>
+Ensemble learning improves churn prediction accuracy and provides better generalization.
+</p>
 </div>
-</section>
+</div>
 
 </div>
 
-<!-- NAV DOTS -->
 <div class="nav"></div>
 
 <script>
 
-const slides = document.querySelectorAll("section");
+const slides = document.querySelectorAll(".slide");
 const nav = document.querySelector(".nav");
 
 let current = 0;
-let scrolling = false;
+let lock = false;
 
-// create dots
+/* CREATE DOTS */
 slides.forEach((_, i) => {
     let dot = document.createElement("div");
-    dot.addEventListener("click", () => goToSlide(i));
+    dot.classList.add("dot");
+    dot.addEventListener("click", () => goTo(i));
     nav.appendChild(dot);
 });
 
-const dots = document.querySelectorAll(".nav div");
+const dots = document.querySelectorAll(".dot");
 
-function updateUI() {
+function update() {
     slides.forEach((s, i) => {
         s.classList.remove("active");
-        dots[i].classList.remove("active-dot");
+        dots[i].classList.remove("active");
     });
     slides[current].classList.add("active");
-    dots[current].classList.add("active-dot");
+    dots[current].classList.add("active");
 }
 
-function goToSlide(index) {
-    if (index < 0 || index >= slides.length) return;
-    current = index;
-    updateUI();
+function goTo(i) {
+    if (i < 0 || i >= slides.length) return;
+    current = i;
+    update();
 }
 
+/* SCROLL CONTROL */
 document.addEventListener("wheel", (e) => {
-    if (scrolling) return;
-    scrolling = true;
+    if (lock) return;
+    lock = true;
 
     if (e.deltaY > 0) current++;
     else current--;
@@ -245,17 +251,18 @@ document.addEventListener("wheel", (e) => {
     if (current < 0) current = 0;
     if (current >= slides.length) current = slides.length - 1;
 
-    updateUI();
+    update();
 
-    setTimeout(() => scrolling = false, 800);
+    setTimeout(() => lock = false, 700);
 });
 
+/* KEYBOARD CONTROL */
 document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowDown") goToSlide(current + 1);
-    if (e.key === "ArrowUp") goToSlide(current - 1);
+    if (e.key === "ArrowDown") goTo(current + 1);
+    if (e.key === "ArrowUp") goTo(current - 1);
 });
 
-updateUI();
+update();
 
 </script>
 
