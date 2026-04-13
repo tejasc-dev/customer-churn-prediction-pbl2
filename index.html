@@ -10,18 +10,68 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css">
 
 <style>
+
+/* GLOBAL TYPOGRAPHY */
+.reveal {
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.reveal h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.reveal h2 {
+    font-size: 2.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.reveal p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.reveal ul {
+    margin-top: 10px;
+}
+
+.reveal li {
+    font-size: 1.15rem;
+    margin: 8px 0;
+}
+
+/* CENTER CONTENT PERFECTLY */
+.reveal .slides section {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+/* CONTENT WIDTH CONTROL */
+.reveal .slides section > * {
+    max-width: 800px;
+}
+
+/* REMOVE DEFAULT CAPS */
 .reveal h1, .reveal h2 {
     text-transform: none;
 }
-.reveal h1 {
-    font-size: 3rem;
+
+/* SUBTLE TRANSITIONS */
+.reveal .slides section {
+    transition: transform 0.6s ease, opacity 0.6s ease;
 }
-.reveal h2 {
-    font-size: 2rem;
+
+/* SLIDE NUMBER STYLE */
+.reveal .slide-number {
+    font-size: 0.8rem;
+    opacity: 0.5;
 }
-.reveal p, .reveal li {
-    font-size: 1.2rem;
-}
+
 </style>
 
 </head>
@@ -46,7 +96,7 @@
 <h2>Introduction</h2>
 <p>
 Customer churn refers to customers discontinuing a service.
-It directly impacts revenue in telecom industries.
+In telecom industries, churn directly impacts revenue and growth.
 </p>
 </section>
 
@@ -64,8 +114,8 @@ Class imbalance leads to biased predictions.
 <h2>Objectives</h2>
 <ul>
 <li>Develop churn prediction model</li>
-<li>Compare ML algorithms</li>
-<li>Use ensemble learning</li>
+<li>Compare machine learning algorithms</li>
+<li>Implement ensemble techniques</li>
 <li>Improve prediction performance</li>
 </ul>
 </section>
@@ -77,8 +127,8 @@ Class imbalance leads to biased predictions.
 <li>Data preprocessing</li>
 <li>Feature engineering</li>
 <li>Model training</li>
-<li>Stacking ensemble</li>
-<li>Evaluation</li>
+<li>Stacking ensemble approach</li>
+<li>Evaluation using metrics</li>
 </ul>
 </section>
 
@@ -86,9 +136,9 @@ Class imbalance leads to biased predictions.
 <section>
 <h2>Dataset</h2>
 <p>
-Telecom customer dataset with features like tenure, services, billing, and demographics.
+Telecom customer dataset including tenure, services, billing, and demographics.
 </p>
-<p><b>Target:</b> Churn (Yes/No)</p>
+<p><b>Target Variable:</b> Churn (Yes/No)</p>
 </section>
 
 <!-- MODELS -->
@@ -107,23 +157,16 @@ Telecom customer dataset with features like tenure, services, billing, and demog
 <section>
 <h2>Results</h2>
 <p>
-Ensemble models outperformed individual models by capturing complex patterns.
+Stacking ensemble improved recall and overall performance compared to individual models.
 </p>
-<ul>
-<li>Improved Accuracy</li>
-<li>Better Recall</li>
-<li>Stable Predictions</li>
-</ul>
 </section>
 
 <!-- CONCLUSION -->
 <section>
 <h2>Conclusion</h2>
 <p>
-Ensemble learning significantly improves churn prediction performance.
-</p>
-<p>
-Future work includes deployment and optimization.
+Ensemble learning enhances churn prediction accuracy and robustness.
+Future work includes deployment and further optimization.
 </p>
 </section>
 
@@ -136,7 +179,10 @@ Future work includes deployment and optimization.
 Reveal.initialize({
     hash: true,
     transition: 'slide',
-    transitionSpeed: 'default'
+    transitionSpeed: 'default',
+    controls: true,
+    progress: true,
+    center: true
 });
 </script>
 
