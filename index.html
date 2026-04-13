@@ -1,181 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Customer Churn Prediction - PBL</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            scroll-behavior: smooth;
-        }
-        nav {
-            position: fixed;
-            width: 100%;
-            background: #111;
-            padding: 10px;
-            z-index: 1000;
-        }
-        nav a {
-            color: white;
-            margin: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            padding: 80px 40px;
-            min-height: 100vh;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .hero {
-            background: linear-gradient(to right, #1f4037, #99f2c8);
-            color: white;
-            text-align: center;
-        }
-        .card {
-            background: #f4f4f4;
-            padding: 20px;
-            margin: 10px 0;
-            border-radius: 8px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Churn Prediction</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background: #0f0f0f;
+    color: white;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.slide {
+    max-width: 900px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00ffc3;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* gradients for sections */
+.hero { background: linear-gradient(135deg, #1f4037, #99f2c8); }
+.dark { background: #111; }
+.alt { background: linear-gradient(135deg, #141e30, #243b55); }
+
+/* navigation dots */
+.nav {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav a {
+    display: block;
+    margin: 10px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.nav a:hover {
+    opacity: 1;
+}
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <a href="#home">Home</a>
-    <a href="#intro">Introduction</a>
-    <a href="#problem">Problem</a>
-    <a href="#objectives">Objectives</a>
-    <a href="#methodology">Methodology</a>
-    <a href="#dataset">Dataset</a>
-    <a href="#models">Models</a>
-    <a href="#results">Results</a>
-    <a href="#conclusion">Conclusion</a>
-</nav>
+<!-- NAV DOTS -->
+<div class="nav">
+    <a href="#s1"></a>
+    <a href="#s2"></a>
+    <a href="#s3"></a>
+    <a href="#s4"></a>
+    <a href="#s5"></a>
+    <a href="#s6"></a>
+    <a href="#s7"></a>
+</div>
 
-<!-- HOME -->
-<section id="home" class="hero">
-    <h1>Customer Churn Prediction</h1>
-    <p>Using Ensemble Learning Techniques</p>
-    <p><b>Tejas Chaudhary</b> | 2427030729</p>
-    <p>Manipal University Jaipur</p>
+<!-- SLIDE 1 -->
+<section id="s1" class="hero">
+<div class="slide">
+<h1>Customer Churn Prediction</h1>
+<p>Using Ensemble Learning</p>
+<br>
+<p><b>Tejas Chaudhary</b></p>
+<p>2427030729 | MUJ</p>
+</div>
 </section>
 
-<!-- INTRODUCTION -->
-<section id="intro">
-    <h2>Introduction</h2>
-    <div class="card">
-        <p>
-            Customer churn refers to customers discontinuing a service. In industries like telecom, 
-            churn directly impacts revenue and growth.
-        </p>
-        <p>
-            Predicting churn is a complex classification problem involving customer behavior, usage patterns, 
-            and service interactions.
-        </p>
-    </div>
+<!-- SLIDE 2 -->
+<section id="s2" class="dark">
+<div class="slide">
+<h2>Introduction</h2>
+<p>
+Customer churn refers to customers discontinuing a service. 
+In telecom industries, churn directly impacts revenue and growth.
+</p>
+</div>
 </section>
 
-<!-- PROBLEM -->
-<section id="problem">
-    <h2>Problem Statement</h2>
-    <div class="card">
-        <p>
-            Traditional machine learning models struggle to capture complex patterns in customer data. 
-            Additionally, class imbalance leads to biased predictions.
-        </p>
-        <p>
-            The goal is to build a robust and accurate churn prediction system using ensemble learning.
-        </p>
-    </div>
+<!-- SLIDE 3 -->
+<section id="s3" class="alt">
+<div class="slide">
+<h2>Problem Statement</h2>
+<p>
+Traditional models fail to capture complex customer behavior. 
+Class imbalance leads to biased predictions.
+</p>
+</div>
 </section>
 
-<!-- OBJECTIVES -->
-<section id="objectives">
-    <h2>Objectives</h2>
-    <div class="card">
-        <ul>
-            <li>Develop a churn prediction model</li>
-            <li>Compare multiple machine learning algorithms</li>
-            <li>Improve performance using ensemble techniques</li>
-            <li>Analyze model performance using evaluation metrics</li>
-        </ul>
-    </div>
+<!-- SLIDE 4 -->
+<section id="s4" class="dark">
+<div class="slide">
+<h2>Objectives</h2>
+<ul>
+<li>Build churn prediction model</li>
+<li>Compare ML algorithms</li>
+<li>Use ensemble learning</li>
+<li>Improve prediction accuracy</li>
+</ul>
+</div>
 </section>
 
-<!-- METHODOLOGY -->
-<section id="methodology">
-    <h2>Methodology</h2>
-    <div class="card">
-        <p>The project follows a structured pipeline:</p>
-        <ul>
-            <li>Data preprocessing and cleaning</li>
-            <li>Feature engineering</li>
-            <li>Model training</li>
-            <li>Ensemble learning</li>
-            <li>Evaluation and comparison</li>
-        </ul>
-    </div>
+<!-- SLIDE 5 -->
+<section id="s5" class="alt">
+<div class="slide">
+<h2>Methodology</h2>
+<ul>
+<li>Data preprocessing</li>
+<li>Feature engineering</li>
+<li>Model training</li>
+<li>Ensemble learning</li>
+<li>Evaluation</li>
+</ul>
+</div>
 </section>
 
-<!-- DATASET -->
-<section id="dataset">
-    <h2>Dataset</h2>
-    <div class="card">
-        <p>
-            The dataset contains customer information such as tenure, services used, billing details, 
-            and demographics.
-        </p>
-        <p><b>Target Variable:</b> Churn (Yes/No)</p>
-    </div>
+<!-- SLIDE 6 -->
+<section id="s6" class="dark">
+<div class="slide">
+<h2>Models Used</h2>
+<ul>
+<li>Logistic Regression</li>
+<li>Decision Tree</li>
+<li>Random Forest</li>
+<li>Gradient Boosting</li>
+<li>Ensemble Model</li>
+</ul>
+</div>
 </section>
 
-<!-- MODELS -->
-<section id="models">
-    <h2>Models Used</h2>
-    <div class="card">
-        <ul>
-            <li>Logistic Regression</li>
-            <li>Decision Tree</li>
-            <li>Random Forest</li>
-            <li>Gradient Boosting</li>
-            <li>Ensemble Model</li>
-        </ul>
-    </div>
-</section>
-
-<!-- RESULTS -->
-<section id="results">
-    <h2>Results and Discussion</h2>
-    <div class="card">
-        <p>
-            Ensemble models outperformed individual models by capturing complex patterns in customer behavior.
-        </p>
-        <ul>
-            <li>Improved Accuracy</li>
-            <li>Better Recall for churn class</li>
-            <li>More stable predictions</li>
-        </ul>
-    </div>
-</section>
-
-<!-- CONCLUSION -->
-<section id="conclusion">
-    <h2>Conclusion</h2>
-    <div class="card">
-        <p>
-            Ensemble learning significantly improves churn prediction performance. The model can be used 
-            by businesses to proactively retain customers.
-        </p>
-        <p>
-            Future work includes deploying the model as a web application and improving performance with deep learning.
-        </p>
-    </div>
+<!-- SLIDE 7 -->
+<section id="s7" class="hero">
+<div class="slide">
+<h2>Conclusion</h2>
+<p>
+Ensemble learning improves churn prediction by capturing complex patterns.
+</p>
+<p>Future work includes deployment and deep learning models.</p>
+</div>
 </section>
 
 </body>
