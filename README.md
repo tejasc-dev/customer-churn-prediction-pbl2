@@ -7,71 +7,76 @@ The system leverages **ensemble learning models** to improve prediction accuracy
 
 ---
 
+## 🚀 Open in Google Colab
+
+👉 Click below to run the project instantly:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK_HERE)
+
+---
+
 ## 🎯 Objectives
-- Develop a robust churn prediction model
-- Compare multiple machine learning algorithms
-- Improve performance using ensemble techniques
-- Optimize recall for churn class (important for business)
-- Provide interpretable insights using SHAP
+- Develop a robust churn prediction model  
+- Compare multiple machine learning algorithms  
+- Improve performance using ensemble techniques  
+- Optimize recall for churn class  
+- Provide interpretability using SHAP  
 
 ---
 
 ## 📊 Dataset
 - **Dataset Used:** IBM Telco Customer Churn Dataset  
 - **Size:** 7043 records  
-- **Features Include:**
-  - Customer demographics
-  - Service usage
-  - Billing information
-  - Tenure
+- **Target Variable:** `Churn (Yes/No)`  
 
-- **Target Variable:**  
-  `Churn (Yes/No)`
+Includes:
+- Demographics  
+- Service usage  
+- Billing information  
+- Tenure  
 
 ---
 
 ## ⚙️ Methodology
 
 ### 🔹 Data Preprocessing
-- Handling missing values
-- Encoding categorical variables
-- Feature scaling
-- Class imbalance handled using **SMOTE**
+- Missing value handling  
+- Encoding categorical variables  
+- Feature scaling  
+- SMOTE for class imbalance  
 
 ### 🔹 Models Used
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Gradient Boosting
-- XGBoost
-- LightGBM
-- CatBoost
+- Logistic Regression  
+- Decision Tree  
+- Random Forest  
+- XGBoost  
+- LightGBM  
+- CatBoost  
 
-### 🔹 Ensemble Technique
-- **Stacking Ensemble Model**
-- Combines predictions of multiple base learners
-- Improves generalization and robustness
+### 🔹 Ensemble Model
+- **Stacking Ensemble**
+- Combines multiple base learners  
+- Improves robustness and accuracy  
 
 ### 🔹 Optimization
 - Hyperparameter tuning using **Optuna**
 
 ### 🔹 Interpretability
-- Model explanations using **SHAP (SHapley Additive Explanations)**
+- SHAP for feature importance analysis  
 
 ---
 
 ## 📈 Results
 
-| Model              | Performance |
-|------------------|------------|
+| Model              | Score |
+|------------------|------|
 | Logistic Regression | 0.74 |
 | Random Forest       | 0.78 |
 | XGBoost             | 0.82 |
-| **Stacking Ensemble** | **0.83 (Best)** |
+| **Stacking Ensemble** | **0.83** |
 
-- **ROC-AUC Score:** 0.83  
-- **F1 Score (Churn):** 0.62  
-- Improved recall for churn class
+- **ROC-AUC:** 0.83  
+- **F1 Score:** 0.62  
 
 ---
 
@@ -81,17 +86,17 @@ The system leverages **ensemble learning models** to improve prediction accuracy
 ---
 
 ## 🧠 Key Insights
-- Ensemble models outperform individual models
-- Feature interactions significantly impact churn
-- Recall optimization is critical in churn prediction problems
+- Ensemble models outperform individual models  
+- Feature interactions are crucial  
+- Recall optimization is key in churn prediction  
 
 ---
 
 ## 🔮 Future Work
-- Deploy model as a web application
-- Integrate real-time prediction system
-- Explore deep learning models
-- Improve interpretability dashboards
+- Deploy as a web app  
+- Real-time prediction system  
+- Improve visualization dashboard  
+- Explore deep learning  
 
 ---
 
@@ -108,4 +113,4 @@ Manipal University Jaipur
 ---
 
 ## 📜 License
-This project is for academic purposes.
+Academic project – for educational use only.
