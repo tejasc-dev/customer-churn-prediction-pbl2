@@ -11,7 +11,7 @@ The system leverages **ensemble learning models** to improve prediction accuracy
 
 👉 Click below to run the project instantly:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK_HERE)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19QIrOr28jKceanpbXorOOCThPQd5FYaQ#scrollTo=FWH1VQXiu_r_)
 
 ---
 
