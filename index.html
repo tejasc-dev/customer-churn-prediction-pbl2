@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Churn Prediction</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
@@ -16,33 +15,47 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-snap-type: y mandatory;
-}
-
 body {
     font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
     background: #0a0a0a;
     color: white;
-    overflow-y: scroll;
 }
 
 /* SLIDES */
+.container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
 section {
     height: 100vh;
-    scroll-snap-align: start;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
 
-/* CONTENT */
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TEXT */
 .slide {
     max-width: 800px;
 }
 
-/* TEXT */
 h1 {
     font-size: 3.5rem;
 }
@@ -64,7 +77,6 @@ ul {
 
 ul li {
     margin: 10px 0;
-    font-size: 1.2rem;
 }
 
 /* BACKGROUNDS */
@@ -80,13 +92,36 @@ ul li {
     background: linear-gradient(135deg, #141e30, #243b55);
 }
 
+/* NAV DOTS */
+.nav {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav div {
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.nav .active-dot {
+    opacity: 1;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- SLIDE 1 -->
-<section class="hero">
+<div class="container">
+
+<section class="hero active">
 <div class="slide">
 <h1>Customer Churn Prediction</h1>
 <p>Using Ensemble Learning Techniques</p>
@@ -97,47 +132,37 @@ ul li {
 </div>
 </section>
 
-<!-- SLIDE 2 -->
 <section class="dark">
 <div class="slide">
 <h2>Introduction</h2>
-<p>
-Customer churn refers to customers leaving a service.
-It directly impacts revenue in telecom industries.
-</p>
+<p>Customer churn refers to customers leaving a service. It directly impacts revenue.</p>
 </div>
 </section>
 
-<!-- SLIDE 3 -->
 <section class="alt">
 <div class="slide">
 <h2>Problem Statement</h2>
-<p>
-Traditional models fail to capture complex patterns.
-Class imbalance leads to inaccurate predictions.
-</p>
+<p>Traditional models fail to capture complex patterns and class imbalance issues.</p>
 </div>
 </section>
 
-<!-- SLIDE 4 -->
 <section class="dark">
 <div class="slide">
 <h2>Objectives</h2>
 <ul>
-<li>Predict customer churn</li>
-<li>Compare ML models</li>
+<li>Predict churn</li>
+<li>Compare models</li>
 <li>Use ensemble learning</li>
-<li>Improve performance</li>
+<li>Improve accuracy</li>
 </ul>
 </div>
 </section>
 
-<!-- SLIDE 5 -->
 <section class="alt">
 <div class="slide">
 <h2>Methodology</h2>
 <ul>
-<li>Data preprocessing</li>
+<li>Preprocessing</li>
 <li>Feature engineering</li>
 <li>Model training</li>
 <li>Stacking ensemble</li>
@@ -146,7 +171,6 @@ Class imbalance leads to inaccurate predictions.
 </div>
 </section>
 
-<!-- SLIDE 6 -->
 <section class="dark">
 <div class="slide">
 <h2>Models Used</h2>
@@ -155,32 +179,85 @@ Class imbalance leads to inaccurate predictions.
 <li>Random Forest</li>
 <li>XGBoost</li>
 <li>LightGBM</li>
-<li>Stacking Ensemble</li>
+<li>Stacking</li>
 </ul>
 </div>
 </section>
 
-<!-- SLIDE 7 -->
 <section class="alt">
 <div class="slide">
 <h2>Results</h2>
-<p>
-Stacking model improved performance significantly.
-Better recall for churn achieved.
-</p>
+<p>Stacking model improved performance and recall significantly.</p>
 </div>
 </section>
 
-<!-- SLIDE 8 -->
 <section class="hero">
 <div class="slide">
 <h2>Conclusion</h2>
-<p>
-Ensemble learning improves prediction accuracy.
-Future work includes deployment.
-</p>
+<p>Ensemble learning improves churn prediction accuracy and reliability.</p>
 </div>
 </section>
+
+</div>
+
+<!-- NAV DOTS -->
+<div class="nav"></div>
+
+<script>
+
+const slides = document.querySelectorAll("section");
+const nav = document.querySelector(".nav");
+
+let current = 0;
+let scrolling = false;
+
+// create dots
+slides.forEach((_, i) => {
+    let dot = document.createElement("div");
+    dot.addEventListener("click", () => goToSlide(i));
+    nav.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".nav div");
+
+function updateUI() {
+    slides.forEach((s, i) => {
+        s.classList.remove("active");
+        dots[i].classList.remove("active-dot");
+    });
+    slides[current].classList.add("active");
+    dots[current].classList.add("active-dot");
+}
+
+function goToSlide(index) {
+    if (index < 0 || index >= slides.length) return;
+    current = index;
+    updateUI();
+}
+
+document.addEventListener("wheel", (e) => {
+    if (scrolling) return;
+    scrolling = true;
+
+    if (e.deltaY > 0) current++;
+    else current--;
+
+    if (current < 0) current = 0;
+    if (current >= slides.length) current = slides.length - 1;
+
+    updateUI();
+
+    setTimeout(() => scrolling = false, 800);
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") goToSlide(current + 1);
+    if (e.key === "ArrowUp") goToSlide(current - 1);
+});
+
+updateUI();
+
+</script>
 
 </body>
 </html>
