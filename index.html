@@ -1,188 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Churn Prediction | PBL 2026</title>
 
-<title>Customer Churn Prediction</title>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
-/* GLOBAL TYPOGRAPHY */
-.reveal {
-    font-family: 'Segoe UI', Arial, sans-serif;
+body {
+    background-color: #020617;
+    color: #f8fafc;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
-.reveal h1 {
-    font-size: 3.2rem;
-    font-weight: 600;
-    margin-bottom: 20px;
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+.glass:hover {
+    transform: translateY(-6px);
+    border-color: rgba(96,165,250,0.4);
 }
 
-.reveal h2 {
-    font-size: 2.1rem;
-    font-weight: 500;
-    margin-bottom: 15px;
+.gradient-text {
+    background: linear-gradient(90deg, #60a5fa, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.reveal p {
-    font-size: 1.15rem;
-    line-height: 1.6;
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
 }
-
-.reveal ul {
-    margin-top: 10px;
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
-
-.reveal li {
-    font-size: 1.15rem;
-    margin: 8px 0;
-}
-
-/* CENTER CONTENT PERFECTLY */
-.reveal .slides section {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-}
-
-/* CONTENT WIDTH CONTROL */
-.reveal .slides section > * {
-    max-width: 800px;
-}
-
-/* REMOVE DEFAULT CAPS */
-.reveal h1, .reveal h2 {
-    text-transform: none;
-}
-
-/* SUBTLE TRANSITIONS */
-.reveal .slides section {
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-/* SLIDE NUMBER STYLE */
-.reveal .slide-number {
-    font-size: 0.8rem;
-    opacity: 0.5;
-}
-
 </style>
-
 </head>
 
 <body>
 
-<div class="reveal">
-<div class="slides">
+<nav class="fixed w-full z-50 border-b border-slate-800/50 px-8 py-4 flex justify-between items-center backdrop-blur">
+    <span class="text-xl font-black">PBL 2026</span>
+    <div class="hidden md:flex gap-8 text-xs uppercase">
+        <a href="#problem">Problem</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#results">Results</a>
+        <a href="#team">Team</a>
+    </div>
+</nav>
 
-<!-- TITLE -->
-<section>
-<h1>Customer Churn Prediction</h1>
-<p>Using Ensemble Learning Techniques</p>
-<br>
-<p><b>Tejas Chaudhary</b></p>
-<p>2427030729</p>
-<p>Manipal University Jaipur</p>
-</section>
+<main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
 
-<!-- INTRO -->
-<section>
-<h2>Introduction</h2>
-<p>
-Customer churn refers to customers discontinuing a service.
-In telecom industries, churn directly impacts revenue and growth.
-</p>
+<!-- HERO -->
+<section class="text-center fade">
+    <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-xs mb-6 uppercase">
+        ID: 2427030729
+    </div>
+
+    <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
+        <span class="gradient-text">Customer Churn Prediction using Ensemble Learning</span>
+    </h1>
+
+    <p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+        A data-driven system to predict telecom customer churn using advanced ensemble models, enabling proactive retention strategies and improving business decision-making.
+    </p>
 </section>
 
 <!-- PROBLEM -->
-<section>
-<h2>Problem Statement</h2>
-<p>
-Traditional machine learning models fail to capture complex customer behavior.
-Class imbalance leads to biased predictions.
-</p>
-</section>
+<section id="problem" class="grid md:grid-cols-2 gap-12 fade">
 
-<!-- OBJECTIVES -->
-<section>
-<h2>Objectives</h2>
-<ul>
-<li>Develop churn prediction model</li>
-<li>Compare machine learning algorithms</li>
-<li>Implement ensemble techniques</li>
-<li>Improve prediction performance</li>
-</ul>
+<div class="glass p-10 rounded-[2.5rem] border-l-4 border-blue-600">
+    <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+    <p class="text-slate-400 leading-relaxed text-justify">
+        Telecom companies face significant financial losses due to customer churn. Traditional models often fail to capture complex behavioral patterns and suffer from class imbalance. This project aims to build a robust, recall-oriented churn prediction system using ensemble learning techniques.
+    </p>
+</div>
+
+<div class="space-y-6">
+    <div class="glass p-7 rounded-3xl">
+        <h3 class="text-blue-400 font-bold text-xs uppercase mb-2">Literature Review</h3>
+        <p class="text-sm text-slate-500 italic">
+            Research shows ensemble methods like Random Forest, Gradient Boosting, and XGBoost outperform linear models in churn prediction due to their ability to model non-linear relationships.
+        </p>
+    </div>
+
+    <div class="glass p-7 rounded-3xl">
+        <h3 class="text-purple-400 font-bold text-xs uppercase mb-2">Research Gap</h3>
+        <p class="text-sm text-slate-500 italic">
+            Limited work focuses on heterogeneous stacking ensembles with recall optimization and interpretability using SHAP values.
+        </p>
+    </div>
+</div>
 </section>
 
 <!-- METHODOLOGY -->
-<section>
-<h2>Methodology</h2>
-<ul>
-<li>Data preprocessing</li>
-<li>Feature engineering</li>
-<li>Model training</li>
-<li>Stacking ensemble approach</li>
-<li>Evaluation using metrics</li>
-</ul>
-</section>
+<section id="methodology" class="space-y-12 text-center fade">
+<h2 class="text-4xl font-black uppercase">
+System <span class="text-blue-500">Methodology</span>
+</h2>
 
-<!-- DATASET -->
-<section>
-<h2>Dataset</h2>
-<p>
-Telecom customer dataset including tenure, services, billing, and demographics.
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="glass p-8 rounded-3xl">
+<h3 class="font-bold uppercase text-xs mb-2">Dataset</h3>
+<p class="text-sm text-slate-500">
+IBM Telco dataset (7043 customers). Data preprocessing included missing value handling, encoding, and scaling.
 </p>
-<p><b>Target Variable:</b> Churn (Yes/No)</p>
-</section>
+</div>
 
-<!-- MODELS -->
-<section>
-<h2>Models Used</h2>
-<ul>
-<li>Logistic Regression</li>
-<li>Random Forest</li>
-<li>XGBoost</li>
-<li>LightGBM</li>
-<li>Stacking Ensemble</li>
-</ul>
+<div class="glass p-8 rounded-3xl">
+<h3 class="font-bold uppercase text-xs mb-2">Models Used</h3>
+<p class="text-sm text-slate-500">
+Logistic Regression, Decision Trees, Random Forest, XGBoost, LightGBM, CatBoost, and stacking ensemble.
+</p>
+</div>
+
+<div class="glass p-8 rounded-3xl border border-green-500/30">
+<h3 class="font-bold uppercase text-xs mb-2 text-green-400">Key Techniques</h3>
+<p class="text-sm text-slate-500">
+SMOTE for imbalance, Optuna for hyperparameter tuning, and SHAP for model interpretability.
+</p>
+</div>
+
+</div>
 </section>
 
 <!-- RESULTS -->
-<section>
-<h2>Results</h2>
-<p>
-Stacking ensemble improved recall and overall performance compared to individual models.
-</p>
-</section>
+<section id="results" class="glass p-12 rounded-[3rem] fade">
+<h2 class="text-3xl font-black text-center mb-12 uppercase">
+Results & Analysis
+</h2>
 
-<!-- CONCLUSION -->
-<section>
-<h2>Conclusion</h2>
-<p>
-Ensemble learning enhances churn prediction accuracy and robustness.
-Future work includes deployment and further optimization.
-</p>
-</section>
+<div class="grid md:grid-cols-2 gap-12 items-center">
 
+<div class="h-80">
+<canvas id="chart"></canvas>
+</div>
+
+<div class="space-y-6">
+<div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between">
+<span class="text-slate-400 text-xs uppercase">Best Model</span>
+<span class="text-blue-400 font-bold">Stacking Ensemble</span>
+</div>
+
+<div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between">
+<span class="text-slate-400 text-xs uppercase">ROC-AUC</span>
+<span class="text-green-400 font-bold">0.83</span>
+</div>
+
+<div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex justify-between">
+<span class="text-slate-400 text-xs uppercase">F1 (Churn)</span>
+<span class="text-purple-400 font-bold">0.62</span>
 </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+</div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="text-center fade">
+<h2 class="text-xs text-slate-500 uppercase mb-12">Academic Credits</h2>
+
+<div class="flex justify-center gap-10 flex-wrap">
+
+<div class="glass px-10 py-6 rounded-2xl">
+<p class="text-xs text-blue-500">Guide</p>
+<p class="font-bold">Dr. Varda Pareek</p>
+</div>
+
+<div class="glass px-10 py-6 rounded-2xl">
+<p class="text-xs text-slate-400">Student</p>
+<p class="font-bold">Tejas Chaudhary</p>
+<p class="text-xs text-slate-500">2427030729</p>
+</div>
+
+</div>
+</section>
+
+</main>
 
 <script>
-Reveal.initialize({
-    hash: true,
-    transition: 'slide',
-    transitionSpeed: 'default',
-    controls: true,
-    progress: true,
-    center: true
+// fade animation
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('show');
+}
+});
+});
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+// chart
+new Chart(document.getElementById('chart'), {
+type: 'bar',
+data: {
+labels: ['Logistic', 'RF', 'XGBoost', 'Stacking'],
+datasets: [{
+data: [0.74, 0.78, 0.82, 0.83],
+backgroundColor: ['#475569','#3b82f6','#a855f7','#22c55e']
+}]
+},
+options: {
+plugins: { legend: { display: false } },
+scales: { y: { beginAtZero: true } }
+}
 });
 </script>
 
