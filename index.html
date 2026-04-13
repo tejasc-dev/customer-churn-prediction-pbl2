@@ -1,166 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Customer Churn Prediction</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css">
 
 <style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.reveal h1, .reveal h2 {
+    text-transform: none;
 }
-
-html, body {
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Montserrat', sans-serif;
-    background: #111;
-    color: #fff;
-}
-
-/* SLIDE CONTAINER */
-.wrapper {
-    height: 100%;
-    width: 100%;
-    position: relative;
-}
-
-/* EACH SLIDE */
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.7s ease;
-}
-
-/* ACTIVE SLIDE */
-.slide.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* CONTENT */
-.content {
-    max-width: 850px;
-}
-
-/* TYPOGRAPHY */
-h1 {
+.reveal h1 {
     font-size: 3rem;
-    font-weight: 600;
 }
-
-h2 {
+.reveal h2 {
     font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: 500;
 }
-
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+.reveal p, .reveal li {
+    font-size: 1.2rem;
 }
-
-ul {
-    list-style: none;
-}
-
-li {
-    margin: 10px 0;
-}
-
-/* BACKGROUNDS */
-.bg1 { background: linear-gradient(135deg, #2c5364, #203a43, #0f2027); }
-.bg2 { background: #111; }
-.bg3 { background: linear-gradient(135deg, #232526, #414345); }
-
-/* DOT NAVIGATION */
-.nav {
-    position: fixed;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background: white;
-    margin: 10px 0;
-    border-radius: 50%;
-    opacity: 0.3;
-    cursor: pointer;
-}
-
-.dot.active {
-    opacity: 1;
-}
-
 </style>
+
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="reveal">
+<div class="slides">
 
-<div class="slide bg1 active">
-<div class="content">
+<!-- TITLE -->
+<section>
 <h1>Customer Churn Prediction</h1>
 <p>Using Ensemble Learning Techniques</p>
 <br>
 <p><b>Tejas Chaudhary</b></p>
 <p>2427030729</p>
 <p>Manipal University Jaipur</p>
-</div>
-</div>
+</section>
 
-<div class="slide bg2">
-<div class="content">
+<!-- INTRO -->
+<section>
 <h2>Introduction</h2>
 <p>
 Customer churn refers to customers discontinuing a service.
-In telecom industries, churn directly impacts revenue and growth.
+It directly impacts revenue in telecom industries.
 </p>
-</div>
-</div>
+</section>
 
-<div class="slide bg3">
-<div class="content">
+<!-- PROBLEM -->
+<section>
 <h2>Problem Statement</h2>
 <p>
-Traditional machine learning models fail to capture complex patterns in customer data.
+Traditional machine learning models fail to capture complex customer behavior.
 Class imbalance leads to biased predictions.
 </p>
-</div>
-</div>
+</section>
 
-<div class="slide bg2">
-<div class="content">
+<!-- OBJECTIVES -->
+<section>
 <h2>Objectives</h2>
 <ul>
-<li>Predict customer churn</li>
-<li>Compare machine learning models</li>
-<li>Implement ensemble techniques</li>
+<li>Develop churn prediction model</li>
+<li>Compare ML algorithms</li>
+<li>Use ensemble learning</li>
 <li>Improve prediction performance</li>
 </ul>
-</div>
-</div>
+</section>
 
-<div class="slide bg3">
-<div class="content">
+<!-- METHODOLOGY -->
+<section>
 <h2>Methodology</h2>
 <ul>
 <li>Data preprocessing</li>
@@ -169,11 +80,19 @@ Class imbalance leads to biased predictions.
 <li>Stacking ensemble</li>
 <li>Evaluation</li>
 </ul>
-</div>
-</div>
+</section>
 
-<div class="slide bg2">
-<div class="content">
+<!-- DATASET -->
+<section>
+<h2>Dataset</h2>
+<p>
+Telecom customer dataset with features like tenure, services, billing, and demographics.
+</p>
+<p><b>Target:</b> Churn (Yes/No)</p>
+</section>
+
+<!-- MODELS -->
+<section>
 <h2>Models Used</h2>
 <ul>
 <li>Logistic Regression</li>
@@ -182,88 +101,43 @@ Class imbalance leads to biased predictions.
 <li>LightGBM</li>
 <li>Stacking Ensemble</li>
 </ul>
-</div>
-</div>
+</section>
 
-<div class="slide bg3">
-<div class="content">
+<!-- RESULTS -->
+<section>
 <h2>Results</h2>
 <p>
-The stacking model improved recall and overall performance compared to individual models.
+Ensemble models outperformed individual models by capturing complex patterns.
 </p>
-</div>
-</div>
+<ul>
+<li>Improved Accuracy</li>
+<li>Better Recall</li>
+<li>Stable Predictions</li>
+</ul>
+</section>
 
-<div class="slide bg1">
-<div class="content">
+<!-- CONCLUSION -->
+<section>
 <h2>Conclusion</h2>
 <p>
-Ensemble learning improves churn prediction accuracy and provides better generalization.
+Ensemble learning significantly improves churn prediction performance.
 </p>
+<p>
+Future work includes deployment and optimization.
+</p>
+</section>
+
 </div>
 </div>
 
-</div>
-
-<div class="nav"></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
 
 <script>
-
-const slides = document.querySelectorAll(".slide");
-const nav = document.querySelector(".nav");
-
-let current = 0;
-let lock = false;
-
-/* CREATE DOTS */
-slides.forEach((_, i) => {
-    let dot = document.createElement("div");
-    dot.classList.add("dot");
-    dot.addEventListener("click", () => goTo(i));
-    nav.appendChild(dot);
+Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'default'
 });
-
-const dots = document.querySelectorAll(".dot");
-
-function update() {
-    slides.forEach((s, i) => {
-        s.classList.remove("active");
-        dots[i].classList.remove("active");
-    });
-    slides[current].classList.add("active");
-    dots[current].classList.add("active");
-}
-
-function goTo(i) {
-    if (i < 0 || i >= slides.length) return;
-    current = i;
-    update();
-}
-
-/* SCROLL CONTROL */
-document.addEventListener("wheel", (e) => {
-    if (lock) return;
-    lock = true;
-
-    if (e.deltaY > 0) current++;
-    else current--;
-
-    if (current < 0) current = 0;
-    if (current >= slides.length) current = slides.length - 1;
-
-    update();
-
-    setTimeout(() => lock = false, 700);
-});
-
-/* KEYBOARD CONTROL */
-document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowDown") goTo(current + 1);
-    if (e.key === "ArrowUp") goTo(current - 1);
-});
-
-update();
-
 </script>
 
 </body>
