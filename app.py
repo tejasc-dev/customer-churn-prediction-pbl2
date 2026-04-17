@@ -5,6 +5,7 @@ Loads a trained classifier and StandardScaler, applies the same preprocessing
 as training, and surfaces predictions with risk tiers and visual diagnostics.
 """
 
+
 from __future__ import annotations
 
 import warnings
@@ -20,6 +21,14 @@ import streamlit as st
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 
+import os
+import gdown
+
+MODEL_URL = "https://drive.google.com/uc?id=1swATBL3laAMhf97nIZs9tZgfJz-TsqwA"
+MODEL_PATH = "model.pkl"
+
+if not os.path.exists(MODEL_PATH):
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
