@@ -122,15 +122,16 @@ def inject_custom_css() -> None:
 
             /* Command header */
             .dash-header-wrap {
-                margin: 0 0 var(--space-lg) 0;
-                padding: 0 0.15rem;
+            margin: 0 0 var(--space-lg) 0;
+            padding: 0.6rem 0.15rem 0 0.15rem;  /* FIX: added top padding */
             }
+            
             .dash-header {
-                display: flex;
-                flex-direction: row;
-                align-items: stretch;
-                gap: 0;
-                padding: var(--space-sm) 0 var(--space-md) 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;   /* FIX */
+            min-height: 70px;      /* FIX */
+            padding-top: 0.3rem;   /* FIX */
             }
             .dash-header-logo {
                 flex-shrink: 0;
